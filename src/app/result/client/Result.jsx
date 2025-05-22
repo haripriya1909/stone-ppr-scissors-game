@@ -9,6 +9,7 @@ const Result = () => {
   const player = searchParams.get("player");
   const computer = searchParams.get("computer");
   const result = searchParams.get("result");
+  const opponent = searchParams.get("opponent");
 
   const getEmoji = (choice) => {
     switch (choice) {
@@ -36,6 +37,17 @@ const Result = () => {
     }
   };
 
+  if (!player || !computer || !result) {
+    return (
+      <div className="resultContainer">
+        <h1 className="title">Invalid Game State</h1>
+        <button className="playAgainButton" onClick={() => router.push("/")}>
+          Start New Game
+        </button>
+      </div>
+    );
+  }
+
   return (
     <div className="resultContainer">
       <h1 className="title">Game Result</h1>
@@ -50,6 +62,11 @@ const Result = () => {
           <span className="emoji">{getEmoji(computer)}</span>
           {computer}
         </div>
+        {opponent && (
+          <div className="opponent-info">
+            <strong>Opponent:</strong> {opponent}
+          </div>
+        )}
         <h2 className="resultMessage">{getMessage()}</h2>
       </div>
       <button className="playAgainButton" onClick={() => router.push("/")}>

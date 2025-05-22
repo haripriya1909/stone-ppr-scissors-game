@@ -1,11 +1,12 @@
-import React from "react";
+import React, { Suspense } from "react";
 import Result from "./client/Result";
-const page = () => {
+
+const ResultPage = () => {
   return (
-    <div>
+    <Suspense fallback={<div>Loading...</div>}>
       <Result />
-    </div>
+    </Suspense>
   );
 };
 
-export default page;
+export default ResultPage;
