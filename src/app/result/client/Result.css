@@ -1,0 +1,96 @@
+.resultContainer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+  padding: 2rem;
+  color: white;
+}
+
+.title {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  color: #ffffff;
+}
+
+.resultBox {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 1rem;
+  margin-bottom: 2rem;
+  width: 100%;
+  max-width: 500px;
+}
+
+.choice {
+  font-size: 1.2rem;
+  margin: 1rem 0;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 0.5rem;
+}
+
+.choice strong {
+  color: #4a90e2;
+  margin-right: 0.5rem;
+}
+
+.resultMessage {
+  font-size: 2rem;
+  margin: 2rem 0;
+  text-align: center;
+  color: #2ecc71;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.playAgainButton {
+  padding: 1rem 2rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 100%);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.playAgainButton:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(135deg, #ff8e8e 0%, #ff6b6b 100%);
+}
+
+.playAgainButton:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.emoji {
+  font-size: 2rem;
+  margin-right: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .resultContainer {
+    padding: 1rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .resultBox {
+    padding: 1.5rem;
+  }
+
+  .resultMessage {
+    font-size: 1.5rem;
+  }
+}
