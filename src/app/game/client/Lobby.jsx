@@ -18,12 +18,13 @@ const Lobby = ({ onGameStart }) => {
         setIsCreatingRoom(false);
       });
 
-      socket.on("player-joined", ({ players }) => {
-        onGameStart(players);
+      socket.on("player-joined", ({ players, roomCode }) => {
+        onGameStart(players, roomCode);
       });
 
       socket.on("join-error", ({ message }) => {
         setError(message);
+        setIsCreatingRoom(false);
       });
 
       socket.on("available-rooms", (rooms) => {
@@ -43,12 +44,13 @@ const Lobby = ({ onGameStart }) => {
         socket.off("available-rooms");
       };
     }
-  }, [socket]);
+  }, [socket, onGameStart]);
 
   const handleCreateRoom = (e) => {
     e.preventDefault();
     if (playerName.trim()) {
       setIsCreatingRoom(true);
+      setError("");
       socket.emit("create-room", { playerName });
     }
   };
@@ -56,6 +58,7 @@ const Lobby = ({ onGameStart }) => {
   const handleJoinRoom = (e) => {
     e.preventDefault();
     if (playerName.trim() && roomCode.trim()) {
+      setError("");
       socket.emit("join-room", { roomCode, playerName });
     }
   };
